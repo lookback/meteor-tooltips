@@ -6,7 +6,8 @@ Package.describe({
 })
 
 Package.on_use(function(api) {
-  api.use('coffeescript jquery templating tracker'.split(' '), 'client')
+  api.versionsFrom('METEOR@0.9.0')
+  api.use('coffeescript jquery templating deps'.split(' '), 'client')
 
   api.add_files('tooltips.html tooltips.coffee'.split(' '), 'client')
 })
