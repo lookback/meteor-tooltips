@@ -1,0 +1,68 @@
+<head>
+  <title>Tooltips Example</title>
+</head>
+
+<body>
+  <h1>Tooltips example</h1>
+
+  <p>
+    Demonstrating Meteor tooltips, by <a href="http://lookback.io">Lookback</a>.
+  </p>
+
+  <p>
+    Simply embed the <code data-tooltip="hej">tooltips</code> template in your master template/layout and attach tooltips with adding the <code>data-tooltip</code> attribute with the tooltip text.
+  </p>
+
+  <dl>
+    <dt>
+      <button data-tooltip="I'm a tooltip!">A tooltip trigger</button>
+    </dt>
+
+    <dd>
+      <p>Default tooltip.</p>
+      <pre><code>&lt;button data-tooltip="I'm a tooltip!"&gt;A tooltip trigger&lt;/button&gt;</code></pre>
+    </dd>
+
+    <dt>
+      <button data-tooltip="I'm a tooltip!" data-tooltip-direction="w">A tooltip trigger</button>
+    </dt>
+
+    <dd>
+      <p>Tooltip to the left (west). Data attribute values:</p>
+
+      <ul>
+        <li><code>n</code> - Top <em>(default)</em>.</li>
+        <li><code>s</code> - Bottom.</li>
+        <li><code>e</code> - Right.</li>
+        <li><code>w</code> - Left.</li>
+      </ul>
+      <pre><code>&lt;button data-tooltip="I'm a tooltip!" data-tooltip-direction="w"&gt;A tooltip trigger&lt;/button&gt;</code></pre>
+    </dd>
+
+    <dt>
+      <button data-tooltip="I'm a tooltip!" data-tooltip-top="50">A tooltip trigger</button><br />
+      <button data-tooltip="I'm a tooltip!" data-tooltip-top="-50">A tooltip trigger</button><br />
+      <button data-tooltip="I'm a tooltip!" data-tooltip-direction="w" data-tooltip-left="50">A tooltip trigger</button><br />
+      <button data-tooltip="I'm a tooltip!" data-tooltip-direction="e" data-tooltip-left="50">A tooltip trigger</button>
+    </dt>
+
+    <dd>
+      <p>Offset tooltip by specifying the <code>data-tooltip-top</code> and <code>data-tooltip-left</code> attributes. Both attributes take plain numbers (negative and positive), counted in pixels.</p>
+
+      <p>
+        The end result of this also depends on <code>data-tooltip-direction</code>.
+      </p>
+
+      <pre><code>&lt;button data-tooltip="I'm a tooltip!" data-tooltip-top="50"&gt;A tooltip trigger&lt;/button&gt;
+
+&lt;button data-tooltip="I'm a tooltip!" data-tooltip-top="-50"&gt;A tooltip trigger&lt;/button&gt;
+
+&lt;button data-tooltip="I'm a tooltip!" data-tooltip-direction="w" data-tooltip-left="50"&gt;A tooltip trigger&lt;/button&gt;
+
+&lt;button data-tooltip="I'm a tooltip!" data-tooltip-direction="e" data-tooltip-left="50"&gt;A tooltip trigger&lt;/button&gt;
+</code></pre>
+    </dd>
+  </dl>
+
+  {{ > tooltips }}
+</body>

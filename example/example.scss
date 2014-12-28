@@ -1,0 +1,43 @@
+@import 'tooltip';
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  width: 90%;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+pre, code {
+  font-family: Menlo, Monaco, Courier, monospace;
+}
+
+pre, p {
+  margin: 0 0 1.5rem;
+}
+
+pre {
+  font-size: .9em;
+  background-color: #eee;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  color: #444;
+  padding: 2rem 2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+p code {
+  background-color: #eee;
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: #333;
+  font-size: .9em;
+}
+
+dd {
+  font-size: .9em;
+  margin: .5rem 0 3rem;
+  padding: 0 1rem;
+  color: #888;
+}
