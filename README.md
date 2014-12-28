@@ -5,7 +5,7 @@ Forget about adding clunky Bootstrap packages. The `lookback:tooltips` package p
 ## Install
 
 ```bash
-meteor add lookback:dropdowns
+meteor add lookback:tooltips
 ```
 
 ## Usage
