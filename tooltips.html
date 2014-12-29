@@ -1,7 +1,9 @@
 <template name="tooltips">
-	<div class="tooltip {{direction}} {{display}}" style="{{position}}">
-		{{#if content}}
-			<div class="inner">{{content}}</div>
+	{{#momentum plugin='fade'}}
+		{{#if show}}
+		<div class="tooltip {{direction}}" style="{{position}}">
+			{{content}}
+		</div>
 		{{/if}}
-	</div>
+	{{/momentum}}
 </template>

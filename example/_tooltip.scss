@@ -4,36 +4,25 @@
 
   z-index: 1001;
   pointer-events: none;
-  opacity: 0;
   font-weight: 500;
   max-width: 200px;
   text-align: center;
   font-size: 13px;
+  background-color: $tooltip-color;
+  border-radius: 4px;
+  padding: 3px 10px;
+
+  @if(lightness($tooltip-color) < 50%) {
+    color: #fff;
+  }
+  @else {
+    color: $text-color;
+  }
+
   transition: opacity .1s ease-out;
 
-  .inner {
-    background-color: $tooltip-color;
-    border-radius: 4px;
-    padding: 3px 10px;
-
-    @if(lightness($tooltip-color) < 50%) {
-      color: #fff;
-    }
-    @else {
-      color: $text-color;
-    }
-  }
-
-  &.hide {
-    opacity: 0;
-  }
-
-  &.show {
-    opacity: 1;
-  }
-
   // CSS arrow
-  .inner::after {
+  &::after {
     content: "";
     display: block;
     bottom: -$arrow-size*2;
@@ -45,7 +34,7 @@
     position: absolute;
   }
 
-  &.tooltip--left .inner {
+  &.tooltip--left {
     box-shadow: rgba(#000, .1) -1px 1px 1px;
 
     &::after {
@@ -56,7 +45,7 @@
     }
   }
 
-  &.tooltip--right .inner {
+  &.tooltip--right {
     box-shadow: rgba(#000, .1) 1px 1px 1px;
 
     &::after {
@@ -66,9 +55,13 @@
     }
   }
 
-  &.tooltip--bottom .inner::after {
-    top: -$arrow-size*2;
-    bottom: auto;
-    border-color: transparent transparent $tooltip-color transparent;
+  &.tooltip--bottom {
+    box-shadow: rgba(#000, .1) 0 1px 1px;
+
+    &::after {
+      top: -$arrow-size*2;
+      bottom: auto;
+      border-color: transparent transparent $tooltip-color transparent;
+    }
   }
 }

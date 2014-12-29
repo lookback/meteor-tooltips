@@ -31,7 +31,7 @@ setPosition = (position, direction) ->
 	dep.changed()
 
 hideTooltip = ->
-	setTooltip false
+	setTooltip(false)
 
 # Positioning
 
@@ -49,10 +49,10 @@ vertically = ($el, $reference) ->
 # Template helpers
 
 Template.tooltips.helpers
-	display: ->
+	show: ->
 		tip = getTooltip()
-
-		if tip.text then 'show' else 'hide'
+		console.log tip.text
+		tip.text isnt false
 
 	position: ->
 		css = getTooltip().css
@@ -92,4 +92,4 @@ Meteor.startup ->
 
 			setPosition(position, direction)
 
-	$(document).on 'mouseout', '[data-tooltip]', hideTooltip
+	$(document).on 'mouseleave', '[data-tooltip]', hideTooltip
