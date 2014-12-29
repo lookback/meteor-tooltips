@@ -6,6 +6,21 @@ body {
   width: 90%;
   max-width: 40rem;
   margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  margin: 3rem auto;
+}
+
+a {
+  color: #C0392B;
 }
 
 pre, code {
@@ -40,4 +55,20 @@ dd {
   margin: .5rem 0 3rem;
   padding: 0 1rem;
   color: #888;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+
+  li {
+
+    &:not(:last-child)::after {
+      content: '·';
+      display: inline-block;
+      padding: 0 5px 0 2px;
+      color: #aaa;
+    }
+  }
 }
