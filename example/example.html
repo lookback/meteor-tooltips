@@ -22,7 +22,7 @@
   </ul>
 
   <p>
-    Simply embed the <code data-tooltip="hej">tooltips</code> template in your master template/layout and attach tooltips with adding the <code>data-tooltip</code> attribute with the tooltip text.
+    Simply embed the <code>tooltips</code> template in your master template/layout and attach tooltips with adding the <code>data-tooltip</code> attribute with the tooltip text.
   </p>
 
   <dl>
@@ -73,6 +73,16 @@
 
 &lt;button data-tooltip="I'm a tooltip!" data-tooltip-direction="e" data-tooltip-left="50"&gt;A tooltip trigger&lt;/button&gt;
 </code></pre>
+    </dd>
+
+    <dt><span data-tooltip="Top-level text"><strong>Nested element</strong></span></dt>
+
+    <dd>
+      <p>
+        Tooltips should work as expected when attaching them to a parent element.
+      </p>
+
+      <pre><code>&lt;span data-tooltip="Top-level text"&gt;&lt;strong&gt;Nested element&lt;/strong&gt;&lt;/span&gt;</code></pre>
     </dd>
   </dl>
 
