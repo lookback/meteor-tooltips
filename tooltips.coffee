@@ -68,7 +68,7 @@ Template.tooltips.helpers
 
 Meteor.startup ->
 
-	$(document).on 'mouseenter', '[data-tooltip]', (evt) ->
+	$(document).on 'mouseover', '[data-tooltip]', (evt) ->
 		$el = $(this)
 		setTooltip $el.data 'tooltip'
 
