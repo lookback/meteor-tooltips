@@ -128,6 +128,7 @@ Commonly, you would give the tooltip element these basic styles (see the `_toolt
 
 ## Version history
 
+- `0.1.2` - Use `mouseover` event instead of `mouseenter`.
 - `0.1.1` - Require Meteor 0.9.3.
 - `0.1.0` - Initial publish.
 
