@@ -45,6 +45,12 @@ horizontally = ($el, $reference) ->
 vertically = ($el, $reference) ->
 	[$reference.offset().top, $reference.outerHeight(), $el.outerHeight()]
 
+# Exports
+
+Tooltips =
+	set: setTooltip
+	get: getTooltip
+	hide: hideTooltip
 
 # Template helpers
 
