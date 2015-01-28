@@ -37,7 +37,7 @@ hideTooltip = ->
 
 center = (args) ->
 	middle = args[0] + args[1] / 2
-	middle - args[2] / 2
+	middle - Math.round(args[2] / 2)
 
 horizontally = ($el, $reference) ->
 	[$reference.offset().left, $reference.outerWidth(), $el.outerWidth()]
