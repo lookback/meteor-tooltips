@@ -1,7 +1,10 @@
 @import 'tooltip';
 
-body {
-  font-family: sans-serif;
+$sans: 'Helvetica Neue', Helvetica, sans-serif;
+$headings: 'Playfair Display', $sans;
+
+html {
+  font-family: $sans;
   line-height: 1.5;
   width: 90%;
   max-width: 40rem;
@@ -9,14 +12,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
-  font-weight: 500;
+h1, h2, h3, .subhead {
+  font-family: $headings;
+  text-align: center;
 }
 
 h1 {
-  font-size: 3em;
-  text-align: center;
-  margin: 3rem auto;
+  font-size: 4em;
+  margin: 1em auto .2em;
+}
+
+.subhead {
+  font-style: italic;
+  margin-bottom: 3em;
+  font-size: 1.3rem;
 }
 
 a {
