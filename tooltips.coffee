@@ -72,6 +72,20 @@ Template.tooltips.helpers
 
 # Init
 
+Template.tooltip.rendered = ->
+
+	this.lastNode._uihooks =
+		insertElement: (node, next) ->
+			next.parentNode.insertBefore(node, next)
+
+		moveElement: (next) ->
+			Tooltips.hide()
+			next.parentNode.insertBefore(node, next)
+
+		removeElement: (node) ->
+			Tooltips.hide()
+			node.parentNode.removeChild(node)
+
 Meteor.startup ->
 
 	$(document).on 'mouseover', '[data-tooltip]', (evt) ->

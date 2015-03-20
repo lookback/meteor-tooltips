@@ -89,6 +89,20 @@
 
       <pre><code>&lt;span data-tooltip="Top-level text"&gt;&lt;strong&gt;Nested element&lt;/strong&gt;&lt;/span&gt;</code></pre>
     </dd>
+
+    <dt>
+      {{#tooltip}}
+        {{#if show}}
+          <button data-toggle data-tooltip="This should be removed">Remove</button>
+        {{/if}}
+      {{/tooltip}}
+    </dt>
+
+    <dd>
+      <p>
+        Tooltips should be removed when the attached element is removed.
+      </p>
+    </dd>
   </dl>
 
   {{ > tooltips }}
