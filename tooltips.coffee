@@ -51,6 +51,7 @@ Tooltips =
 	set: setTooltip
 	get: getTooltip
 	hide: hideTooltip
+	setPosition: setPosition
 
 # Template helpers
 
