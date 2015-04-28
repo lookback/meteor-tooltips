@@ -128,6 +128,7 @@ Commonly, you would give the tooltip element these basic styles (see the `_toolt
 
 ## Version history
 
+- `0.2.2` - Export `setPosition` function. *Experimental:* Allow removal of tooltips when element is removed.
 - `0.2.1` - Fix rounding errors when positioning.
 - `0.2.0` - Expose public API namespace (`Tooltips`).
 - `0.1.2` - Use `mouseover` event instead of `mouseenter`.
