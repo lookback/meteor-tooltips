@@ -60,8 +60,8 @@ The `data-tooltip-direction` attribute takes these values:
 
 - `n` - Top *(default)*
 - `s` - Bottom
-- `e` - Left
-- `w` - Right
+- `e` - Right
+- `w` - Left
 
 ### Offsets
 
