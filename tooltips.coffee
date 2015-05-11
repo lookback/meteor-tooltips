@@ -108,6 +108,13 @@ Meteor.startup ->
 
 	$(document).on 'mouseover', '[data-tooltip]', (evt) ->
 		$el = $(this)
+
+		viewport = $el.data 'tooltip-disable'
+
+		if viewport and _.isString(viewport)
+			mq = window.matchMedia(viewport)
+			return false if mq.matches
+
 		setTooltip $el.data 'tooltip'
 
 		Tracker.afterFlush ->
