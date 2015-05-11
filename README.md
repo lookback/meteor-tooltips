@@ -126,6 +126,28 @@ Commonly, you would give the tooltip element these basic styles (see the `_toolt
 }
 ```
 
+## Disabling for other viewports
+
+It's possible to completely disable the tooltips, or just for a certain viewport. By setting the `Tooltips.disable` option (defaults to `false`), you can pass in `true` to disable all tooltips, or a [`matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) string which disables all tooltips for that viewport.
+
+```js
+# Disable for all
+Tooltips.disable = true
+
+# Disable for devices/browsers over 500 px in width
+Tooltips.disable = '(min-width: 500px)'
+
+# Disable for devices/browser below 400 px in width
+Tooltips.disable = '(max-width: 400px)'
+```
+
+You can also disable individual tooltips directly from the markup, by setting the `data-tooltip-disable` attribute:
+
+```html
+<!-- Disables *this* tooltip for browsers below 400px in width. -->
+<button data-tooltip="I'm a tooltip!" data-tooltip-disable="(max-width: 400px)">A tooltip trigger</button>
+```
+
 ## Version history
 
 - `0.2.2` - Export `setPosition` function. *Experimental:* Allow removal of tooltips when element is removed.
