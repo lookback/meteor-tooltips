@@ -132,13 +132,18 @@ It's possible to completely disable the tooltips, or just for a certain viewport
 
 ```js
 # Disable for all
-Tooltips.disable = true
+Tooltips.disable = true;
+
+# Disabling for all touch devices:
+# https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
+var isTouch = !!('ontouchstart' in window) || !!(window.DocumentTouch && document instanceof DocumentTouch);
+Tooltips.disable = isTouch;
 
 # Disable for devices/browsers over 500 px in width
-Tooltips.disable = '(min-width: 500px)'
+Tooltips.disable = '(min-width: 500px)';
 
 # Disable for devices/browser below 400 px in width
-Tooltips.disable = '(max-width: 400px)'
+Tooltips.disable = '(max-width: 400px)';
 ```
 
 You can also disable individual tooltips directly from the markup, by setting the `data-tooltip-disable` attribute:
