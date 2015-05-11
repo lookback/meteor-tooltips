@@ -153,6 +153,38 @@ You can also disable individual tooltips directly from the markup, by setting th
 <button data-tooltip="I'm a tooltip!" data-tooltip-disable="(max-width: 400px)">A tooltip trigger</button>
 ```
 
+## API
+
+This packages exposes an API in the `Tooltips` namespace on the client:
+
+```js
+// Set a tooltip. Second argument is optional. If passed, it'll be
+// the CSS position for the tooltip.
+Tooltips.set('Text', {top: 10, left: 30});
+
+// Get the tooltip. Creates a reactive dependency, and returns an object.
+var tip = Tooltips.get();
+
+/*
+=>
+  tip.text == 'Text';
+  tip.css == {top: 0, left: 0};
+  tip.direction == 'tooltip--top';
+*/
+
+// Disable all tooltips. Can be `true|false` or a `matchMedia` query.
+// Defaults to false.
+Tooltips.disable = true;
+
+// Set position of the tooltip. Second argument is optional. If passed, it'll
+// be the direction of the tooltip, and must be one of `n`, `s`, `e`, `w`
+// (north, south, east, west).
+Tooltips.setPosition({top: 10, left: 30}, 'n');
+
+// Hide all tooltips
+Tooltips.hide();
+```
+
 ## Version history
 
 - `0.3.0` - Add support for disabling tooltips completely, or for certain viewports.
