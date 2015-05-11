@@ -59,7 +59,7 @@ Tooltips =
 Template.tooltips.onCreated ->
 	@disabled = new ReactiveVar(Tooltips.disable)
 
-	if Tooltips.disable
+	if Tooltips.disable and _.isString(Tooltips.disable)
 		mq = window.matchMedia(Tooltips.disable)
 		@disabled.set(mq.matches)
 
