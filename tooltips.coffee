@@ -48,16 +48,33 @@ vertically = ($el, $reference) ->
 # Exports
 
 Tooltips =
+	disable: false
 	set: setTooltip
 	get: getTooltip
 	hide: hideTooltip
 	setPosition: setPosition
+
+# Enable/disable for viewports
+
+Template.tooltips.onCreated ->
+	@disabled = new ReactiveVar(Tooltips.disable)
+
+	if Tooltips.disable
+		mq = window.matchMedia(Tooltips.disable)
+		@disabled.set(mq.matches)
+
+		mq.addListener (changed) =>
+		  @disabled.set(changed.matches)
+
 
 # Template helpers
 
 Template.tooltips.helpers
 	display: ->
 		tip = getTooltip()
+
+		if Template.instance().disabled.get() is true
+			return 'hide'
 
 		if tip.text then 'show' else 'hide'
 
