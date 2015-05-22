@@ -116,6 +116,7 @@ Meteor.startup ->
 			return false if mq.matches
 
 		setTooltip $el.data 'tooltip'
+		setPosition(top: 0, left: 0)
 
 		Tracker.afterFlush ->
 			direction = $el.data('tooltip-direction') or 'n'
