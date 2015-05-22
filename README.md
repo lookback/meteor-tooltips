@@ -187,8 +187,11 @@ Tooltips.hide();
 
 ## Version history
 
+- `0.3.1` - Fix bug where a tooltip's position would be off, if it was placed near the window edge and thus would break into multiple lines.
 - `0.3.0` - Add support for disabling tooltips completely, or for certain viewports.
-- `0.2.2` - Export `setPosition` function. *Experimental:* Allow removal of tooltips when element is removed.
+- `0.2.2`
+  - Export `setPosition` function.
+  - *Experimental:* Allow removal of tooltips when element is removed.
 - `0.2.1` - Fix rounding errors when positioning.
 - `0.2.0` - Expose public API namespace (`Tooltips`).
 - `0.1.2` - Use `mouseover` event instead of `mouseenter`.
