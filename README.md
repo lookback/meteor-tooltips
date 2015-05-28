@@ -187,6 +187,7 @@ Tooltips.hide();
 
 ## Version history
 
+- `0.3.2` - Fix not being able to set directions for certain directions.
 - `0.3.1` - Fix bug where a tooltip's position would be off, if it was placed near the window edge and thus would break into multiple lines.
 - `0.3.0` - Add support for disabling tooltips completely, or for certain viewports.
 - `0.2.2`
