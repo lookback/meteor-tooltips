@@ -123,18 +123,28 @@ Meteor.startup ->
 			$tooltip = $(".tooltip")
 
 			position = $el.offset()
-			offLeft = $el.data('tooltip-left') or offset[0]
-			offTop = $el.data('tooltip-top') or offset[1]
+			offLeft = $el.data('tooltip-left')
+			offTop = $el.data('tooltip-top')
+
+			if _.isUndefined(offLeft)
+				offLeft = 0
+			else
+				hasOffsetLeft = true
+
+			if _.isUndefined(offTop)
+				offTop = 0
+			else
+				hasOffsetTop = true
 
 			position.top = switch direction
-				when 'w', 'e' then center vertically $tooltip, $el
-				when 'n' then position.top - $tooltip.outerHeight() - offTop
-				when 's' then position.top + $el.outerHeight() + offTop
+				when 'w', 'e' then (center vertically $tooltip, $el) + offTop
+				when 'n' then position.top - $tooltip.outerHeight() - (if hasOffsetTop then offTop else offset[1])
+				when 's' then position.top + $el.outerHeight() + (if hasOffsetTop then offTop else offset[1])
 
 			position.left = switch direction
-				when 'n', 's' then center horizontally $tooltip, $el
-				when 'w' then position.left - $tooltip.outerWidth() - offLeft
-				when 'e' then position.left + $el.outerWidth() + offLeft
+				when 'n', 's' then (center horizontally $tooltip, $el) + offLeft
+				when 'w' then position.left - $tooltip.outerWidth() - (if hasOffsetLeft then offLeft else offset[0])
+				when 'e' then position.left + $el.outerWidth() + (if hasOffsetLeft then offLeft else offset[0])
 
 			setPosition(position, direction)
 
