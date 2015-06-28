@@ -90,7 +90,7 @@ Template.tooltips.helpers
 
 # Init
 
-Template.tooltip.rendered = ->
+Template.tooltip.onRendered ->
 
 	this.lastNode._uihooks =
 		insertElement: (node, next) ->
