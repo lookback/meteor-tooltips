@@ -104,9 +104,11 @@ Template.tooltip.onRendered ->
 			Tooltips.hide()
 			node.parentNode.removeChild(node)
 
+SELECTORS = '[data-tooltip], [data-tooltip-element]'
+
 Meteor.startup ->
 
-	$(document).on 'mouseover', '[data-tooltip]', (evt) ->
+	$(document).on 'mouseover', SELECTORS, (evt) ->
 		$el = $(this)
 
 		viewport = $el.data 'tooltip-disable'
@@ -115,7 +117,13 @@ Meteor.startup ->
 			mq = window.matchMedia(viewport)
 			return false if mq.matches
 
-		setTooltip $el.data 'tooltip'
+		content = if selector = $el.data 'tooltip-element'
+			$target = $(selector)
+			$target.length and $target.html()
+		else
+			$el.data('tooltip')
+
+		setTooltip content
 		setPosition(top: 0, left: 0)
 
 		Tracker.afterFlush ->
@@ -148,4 +156,4 @@ Meteor.startup ->
 
 			setPosition(position, direction)
 
-	$(document).on 'mouseout', '[data-tooltip]', hideTooltip
+	$(document).on 'mouseout', SELECTORS, hideTooltip
