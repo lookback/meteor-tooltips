@@ -8,6 +8,10 @@
 </head>
 
 <body>
+  <div id="tooltip-el" class="tooltip-element">
+    <strong>This is a tooltip in an external element.</strong> Much markup can be <em>used</em>.
+  </div>
+
   <h1>Tooltips for Meteor</h1>
 
   <p class="subhead">
@@ -38,6 +42,24 @@
     <dd>
       <p>Default tooltip.</p>
       <pre><code>&lt;button data-tooltip="I'm a tooltip!"&gt;A tooltip trigger&lt;/button&gt;</code></pre>
+    </dd>
+
+    <dt>
+      <button data-tooltip="You can use <strong>HTML</strong> in here too.">A tooltip trigger</button>
+    </dt>
+
+    <dd>
+      <p>You can use HTML tags in your tooltips.</p>
+      <pre><code>&lt;button data-tooltip="You can use &lt;strong&gt;HTML&lt;/strong&gt; in here too."&gt;A tooltip trigger&lt;/button&gt;</code></pre>
+    </dd>
+
+    <dt>
+      <button data-tooltip-element="#tooltip-el">A tooltip trigger</button>
+    </dt>
+
+    <dd>
+      <p>You can use <code>data-tooltip-element</code> to refer to an external element containing markup for the tooltip.</p>
+      <pre><code>&lt;button data-tooltip-element="#tooltip-el"&gt;A tooltip trigger&lt;/button&gt;</code></pre>
     </dd>
 
     <dt>

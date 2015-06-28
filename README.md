@@ -40,6 +40,26 @@ Attach a tooltip to an element with the `data-tooltip` data attribute:
 
 The tooltip will show when hovering over the button.
 
+### Markup
+
+You can embed markup in your tooltips as well:
+
+```html
+<button data-tooltip="I'm a tooltip with <strong>markup!</strong>">A tooltip trigger</button>
+```
+
+Or refer to an external element containing the markup:
+
+```html
+<div id="my-element" aria-hidden="true">
+  <strong>I'm a tooltip with some more <em>markup!</em></strong>
+</div>
+
+<button data-tooltip-element="#my-element">A tooltip trigger</button>
+```
+
+Remember to hide the external tooltip elements with CSS!
+
 ### Direction
 
 You may specify the **direction** of the tooltip around the element as well, with the `data-tooltip-direction` attribute.
