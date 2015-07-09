@@ -103,6 +103,28 @@
         Tooltips should be removed when the attached element is removed.
       </p>
     </dd>
+
+    <dt>Tooltip Triggers</dt>
+    <button data-tooltip="Tooltip on Click" data-tooltip-trigger="click">Click Me!</button><br />
+    <button data-tooltip="Tooltip on Hover" data-tooltip-trigger="hover">Hover Me!</button><br />
+    <input data-tooltip="Tooltip on Focus" data-tooltip-trigger="focus" value="Focus on Me!"><br />
+    <button id="manual-tooltip" data-tooltip="Manual Tooltip" data-tooltip-trigger="manual">Click button bellow</button><br />
+    <button id="show-tooltip">Show Tooltip above</button><br />
+    <button id="hide-tooltip">Hide Tooltip above</button><br />
+    <button id="toggle-tooltip">Toggle Tooltip above</button><br />
+    <dd>
+      <p>
+        You can set different triggers for tooltips: hover, click, focus or manual.
+      </p>
+
+      <pre><code>
+        &lt;button data-tooltip="Tooltip on Click" data-tooltip-trigger="click"&gt;Click Me!&lt;/button&gt;&lt;br /&gt;
+        &lt;button data-tooltip="Tooltip on Hover" data-tooltip-trigger="hover"&gt;Hover Me!&lt;/button&gt;&lt;br /&gt;
+        &lt;input data-tooltip="Tooltip on Focus" data-tooltip-trigger="focus" value="Focus on Me!"&gt;&lt;br /&gt;
+        &lt;button id="manual-tooltip" data-tooltip="Manual Tooltip" data-tooltip-trigger="manual"&gt;Click button bellow&lt;/button&gt;&lt;br /&gt;
+      </code></pre>
+    </dd>
+
   </dl>
 
   {{ > tooltips }}

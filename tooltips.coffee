@@ -33,6 +33,36 @@ setPosition = (position, direction) ->
 hideTooltip = ->
 	setTooltip false
 
+_showTooltip = (e, $el) ->
+	$el = $el or $(@)
+	setTooltip $el.data 'tooltip'
+
+	Tracker.afterFlush ->
+		direction = $el.data('tooltip-direction') or 'n'
+		$tooltip = $(".tooltip")
+
+		position = $el.offset()
+		offLeft = $el.data('tooltip-left') or offset[0]
+		offTop = $el.data('tooltip-top') or offset[1]
+
+		position.top = switch direction
+			when 'w', 'e' then center vertically $tooltip, $el
+			when 'n' then position.top - $tooltip.outerHeight() - offTop
+			when 's' then position.top + $el.outerHeight() + offTop
+
+		position.left = switch direction
+			when 'n', 's' then center horizontally $tooltip, $el
+			when 'w' then position.left - $tooltip.outerWidth() - offLeft
+			when 'e' then position.left + $el.outerWidth() + offLeft
+
+		setPosition(position, direction)
+
+_toggleTooltip = ->
+	if getTooltip().text
+		hideTooltip()
+	else
+		_showTooltip null, $(@)
+
 # Positioning
 
 center = (args) ->
@@ -89,28 +119,11 @@ Template.tooltip.rendered = ->
 
 Meteor.startup ->
 
-	$(document).on 'mouseover', '[data-tooltip]', (evt) ->
-		$el = $(this)
-		setTooltip $el.data 'tooltip'
-
-		Tracker.afterFlush ->
-			direction = $el.data('tooltip-direction') or 'n'
-			$tooltip = $(".tooltip")
-
-			position = $el.offset()
-			offLeft = $el.data('tooltip-left') or offset[0]
-			offTop = $el.data('tooltip-top') or offset[1]
-
-			position.top = switch direction
-				when 'w', 'e' then center vertically $tooltip, $el
-				when 'n' then position.top - $tooltip.outerHeight() - offTop
-				when 's' then position.top + $el.outerHeight() + offTop
-
-			position.left = switch direction
-				when 'n', 's' then center horizontally $tooltip, $el
-				when 'w' then position.left - $tooltip.outerWidth() - offLeft
-				when 'e' then position.left + $el.outerWidth() + offLeft
-
-			setPosition(position, direction)
-
-	$(document).on 'mouseout', '[data-tooltip]', hideTooltip
+	$(document).on 'mouseover', '[data-tooltip]:not([data-tooltip-trigger]), [data-tooltip-trigger="hover"]', _showTooltip
+	$(document).on 'mouseout', '[data-tooltip]:not([data-tooltip-trigger]), [data-tooltip-trigger="hover"]', hideTooltip
+	$(document).on 'click', '[data-tooltip-trigger="click"]', _toggleTooltip
+	$(document).on 'focus', '[data-tooltip-trigger="focus"]', _showTooltip
+	$(document).on 'blur', '[data-tooltip-trigger="focus"]', hideTooltip
+	$(document).on 'showTooltip', '[data-tooltip-trigger="manual"]', _showTooltip
+	$(document).on 'hideTooltip', '[data-tooltip-trigger="manual"]', hideTooltip
+	$(document).on 'toggleTooltip', '[data-tooltip-trigger="manual"]', _toggleTooltip

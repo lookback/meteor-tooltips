@@ -17,4 +17,13 @@ if Meteor.isClient
       Meteor.setTimeout ->
         Session.set 'show', true
       , 3000
+
+    'click #show-tooltip': ->
+      $('#manual-tooltip').trigger('showTooltip')
+
+    'click #hide-tooltip': ->
+      $('#manual-tooltip').trigger('hideTooltip')
+
+    'click #toggle-tooltip': ->
+      $('#manual-tooltip').trigger('toggleTooltip')
   )
