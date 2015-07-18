@@ -40,6 +40,26 @@ Attach a tooltip to an element with the `data-tooltip` data attribute:
 
 The tooltip will show when hovering over the button.
 
+### Markup
+
+You can embed markup in your tooltips as well:
+
+```html
+<button data-tooltip="I'm a tooltip with <strong>markup!</strong>">A tooltip trigger</button>
+```
+
+Or refer to an external element containing the markup:
+
+```html
+<div id="my-element" aria-hidden="true">
+  <strong>I'm a tooltip with some more <em>markup!</em></strong>
+</div>
+
+<button data-tooltip-element="#my-element">A tooltip trigger</button>
+```
+
+Remember to hide the external tooltip elements with CSS!
+
 ### Direction
 
 You may specify the **direction** of the tooltip around the element as well, with the `data-tooltip-direction` attribute.
@@ -60,8 +80,8 @@ The `data-tooltip-direction` attribute takes these values:
 
 - `n` - Top *(default)*
 - `s` - Bottom
-- `e` - Left
-- `w` - Right
+- `e` - Right
+- `w` - Left
 
 ### Offsets
 
@@ -144,9 +164,74 @@ Commonly, you would give the tooltip element these basic styles (see the `_toolt
 }
 ```
 
+## Disabling for other viewports
+
+It's possible to completely disable the tooltips, or just for a certain viewport. By setting the `Tooltips.disable` option (defaults to `false`), you can pass in `true` to disable all tooltips, or a [`matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) string which disables all tooltips for that viewport.
+
+```js
+// Disable for all
+Tooltips.disable = true;
+
+// Disabling for all touch devices:
+// https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
+var isTouch = !!('ontouchstart' in window) || !!(window.DocumentTouch && document instanceof DocumentTouch);
+Tooltips.disable = isTouch;
+
+// Disable for devices/browsers over 500 px in width
+Tooltips.disable = '(min-width: 500px)';
+
+// Disable for devices/browser below 400 px in width
+Tooltips.disable = '(max-width: 400px)';
+```
+
+You can also disable individual tooltips directly from the markup, by setting the `data-tooltip-disable` attribute:
+
+```html
+<!-- Disables *this* tooltip for browsers below 400px in width. -->
+<button data-tooltip="I'm a tooltip!" data-tooltip-disable="(max-width: 400px)">A tooltip trigger</button>
+```
+
+## API
+
+This packages exposes an API in the `Tooltips` namespace on the client:
+
+```js
+// Set a tooltip. Second argument is optional. If passed, it'll be
+// the CSS position for the tooltip.
+Tooltips.set('Text', {top: 10, left: 30});
+
+// Get the tooltip. Creates a reactive dependency, and returns an object.
+var tip = Tooltips.get();
+
+/*
+=>
+  tip.text == 'Text';
+  tip.css == {top: 0, left: 0};
+  tip.direction == 'tooltip--top';
+*/
+
+// Disable all tooltips. Can be `true|false` or a `matchMedia` query.
+// Defaults to false.
+Tooltips.disable = true;
+
+// Set position of the tooltip. Second argument is optional. If passed, it'll
+// be the direction of the tooltip, and must be one of `n`, `s`, `e`, `w`
+// (north, south, east, west).
+Tooltips.setPosition({top: 10, left: 30}, 'n');
+
+// Hide all tooltips
+Tooltips.hide();
+```
+
 ## Version history
 
-- `0.2.2` - Export `setPosition` function. *Experimental:* Allow removal of tooltips when element is removed.
+- `0.4.0` - Allow inline markup in tooltips.
+- `0.3.2` - Fix not being able to set directions for certain directions.
+- `0.3.1` - Fix bug where a tooltip's position would be off, if it was placed near the window edge and thus would break into multiple lines.
+- `0.3.0` - Add support for disabling tooltips completely, or for certain viewports.
+- `0.2.2`
+  - Export `setPosition` function.
+  - *Experimental:* Allow removal of tooltips when element is removed.
 - `0.2.1` - Fix rounding errors when positioning.
 - `0.2.0` - Expose public API namespace (`Tooltips`).
 - `0.1.2` - Use `mouseover` event instead of `mouseenter`.

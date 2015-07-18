@@ -19,11 +19,11 @@ if Meteor.isClient
       , 3000
 
     'click #show-tooltip': ->
-      $('#manual-tooltip').trigger('showTooltip')
+      $('#manual-tooltip').trigger('tooltips:show')
 
     'click #hide-tooltip': ->
-      $('#manual-tooltip').trigger('hideTooltip')
+      $('#manual-tooltip').trigger('tooltips:hide')
 
     'click #toggle-tooltip': ->
-      $('#manual-tooltip').trigger('toggleTooltip')
+      $('#manual-tooltip').trigger('tooltips:toggle')
   )
