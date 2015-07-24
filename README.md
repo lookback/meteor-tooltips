@@ -104,16 +104,25 @@ Both attributes takes positive and negative numbers, intepreted as **pixels**.
 
 ### Triggers
 
-Tooltips support different **triggers**, other then on hover, which is the default.
-Supported triggers are: `hover`, `click`, `focus` and `manual`.
-To use the manual trigger, trigger the events `showTooltip`, `hideTooltip`, and `toggleTooltip` on the element.
+Tooltips support different **triggers**, other then on hover, which is the default. Supported triggers are:
+
+- `hover`
+- `click`
+- `focus`
+- `manual`
+
+To use the manual trigger, trigger these events on the element:
+
+- `tooltips:show`
+- `tooltips:hide`
+- `tooltips:toggle`
 
 ```html
 <template name="main">
 <p>Some content.</p>
 
 <p>
-<button data-tooltip="Tooltip on Click" data-tooltip-trigger="click">Click Me!</button>
+  <button data-tooltip="Tooltip on Click" data-tooltip-trigger="click">Click Me!</button>
 </p>
 
 {{ > tooltips }}
