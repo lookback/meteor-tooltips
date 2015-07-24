@@ -102,6 +102,24 @@ The tooltip in the example above will be offset 50 pixels *to the north* (upward
 
 Both attributes takes positive and negative numbers, intepreted as **pixels**.
 
+### Triggers
+
+Tooltips support different **triggers**, other then on hover, which is the default.
+Supported triggers are: `hover`, `click`, `focus` and `manual`.
+To use the manual trigger, trigger the events `showTooltip`, `hideTooltip`, and `toggleTooltip` on the element.
+
+```html
+<template name="main">
+<p>Some content.</p>
+
+<p>
+<button data-tooltip="Tooltip on Click" data-tooltip-trigger="click">Click Me!</button>
+</p>
+
+{{ > tooltips }}
+</template>
+```
+
 ## Styling
 
 This package does not bundle any CSS styles for the tooltips – it's up to you to style them. The only styles that are included are inlined on the tooltip element itself:
