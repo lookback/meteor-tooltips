@@ -129,6 +129,8 @@ To use the manual trigger, trigger these events on the element:
 </template>
 ```
 
+Please see the example app for more examples.
+
 ## Styling
 
 This package does not bundle any CSS styles for the tooltips – it's up to you to style them. The only styles that are included are inlined on the tooltip element itself:
@@ -234,6 +236,7 @@ Tooltips.hide();
 
 ## Version history
 
+- `0.5.0` - Support for custom events and triggering. Thanks, [@jazzdragon](http://github.com/jazzdragon)!
 - `0.4.0` - Allow inline markup in tooltips.
 - `0.3.2` - Fix not being able to set directions for certain directions.
 - `0.3.1` - Fix bug where a tooltip's position would be off, if it was placed near the window edge and thus would break into multiple lines.
