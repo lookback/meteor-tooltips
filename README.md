@@ -236,6 +236,7 @@ Tooltips.hide();
 
 ## Version history
 
+- `0.5.1` - Fix CSS issue in IE.
 - `0.5.0` - Support for custom events and triggering. Thanks, [@jazzdragon](http://github.com/jazzdragon)!
 - `0.4.0` - Allow inline markup in tooltips.
 - `0.3.2` - Fix not being able to set directions for certain directions.
