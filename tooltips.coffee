@@ -133,7 +133,7 @@ Template.tooltips.helpers
 
 	position: ->
 		css = getTooltip().css
-		return "position: absolute; top: #{css.top}px; left: #{css.left}px"
+		return "position: absolute; top: #{css.top}px; left: #{css.left}px;"
 
 	content: ->
 		getTooltip().text
