@@ -37,12 +37,12 @@ toggleTooltip = ->
 	if getTooltip().text then hideTooltip() else showTooltip null, $(this)
 
 positionTooltip = ($el) ->
-	direction = $el.data('tooltip-direction') or 'n'
+	direction = $el.attr('data-tooltip-direction') or 'n'
 	$tooltip = $(".tooltip")
 
 	position = $el.offset()
-	offLeft = $el.data('tooltip-left')
-	offTop = $el.data('tooltip-top')
+	offLeft = $el.attr('data-tooltip-left')
+	offTop = $el.attr('data-tooltip-top')
 
 	if _.isUndefined(offLeft)
 		offLeft = 0
@@ -68,17 +68,17 @@ positionTooltip = ($el) ->
 
 showTooltip = (evt, $el) ->
 	$el = $el or $(this)
-	viewport = $el.data 'tooltip-disable'
+	viewport = $el.attr 'data-tooltip-disable'
 
 	if viewport and _.isString(viewport)
 		mq = window.matchMedia(viewport)
 		return false if mq.matches
 
-	content = if selector = $el.data 'tooltip-element'
+	content = if selector = $el.attr 'data-tooltip-element'
 		$target = $(selector)
 		$target.length and $target.html()
 	else
-		$el.data('tooltip')
+		$el.attr('data-tooltip')
 
 	setTooltip(content)
 	setPosition(top: 0, left: 0)
