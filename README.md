@@ -20,6 +20,27 @@ You can now use the `tooltips` (singleton) template in your layouts/templates.
 </template>
 ```
 
+**You must style the `show` and `hide` classes on a tooltip.**
+
+Commonly, you would give the tooltip element these basic styles (see the `_tooltip.scss` file in the `example` folder):
+
+```css
+.tooltip {
+  z-index: 1001;
+  pointer-events: none;
+  transition: opacity .1s ease-out;
+  opacity: 0;
+}
+
+.tooltip.hide {
+  opacity: 0;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+```
+
 ### Basic
 
 Attach a tooltip to an element with the `data-tooltip` data attribute:
@@ -151,27 +172,6 @@ The main tooltip element has these classes:
 The content wrapper has the `inner` class. Usable for separate styling as well as for transitioning.
 
 When hovering over the triggering element, a `show` class will be added to the main tooltip element. When the tooltip is inactive, it'll have the `hide` class.
-
-**You must style the `show` and `hide` classes.**
-
-Commonly, you would give the tooltip element these basic styles (see the `_tooltip.scss` file in the `example` folder):
-
-```scss
-.tooltip {
-  z-index: 1001;
-  pointer-events: none;
-  transition: opacity .1s ease-out;
-  opacity: 0;
-
-  &.hide {
-    opacity: 0;
-  }
-
-  &.show {
-    opacity: 1;
-  }
-}
-```
 
 ## Disabling for other viewports
 
