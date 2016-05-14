@@ -2,8 +2,6 @@
 
 Forget about adding clunky Bootstrap packages. The `lookback:tooltips` package provides tooltips "The Meteor Way" – the reactive way! Barebones, minimal and functional.
 
-**Demo:** [tooltips.meteor.com](http://tooltips.meteor.com/) *(code available in the `example` directory).*
-
 ## Install
 
 ```bash
