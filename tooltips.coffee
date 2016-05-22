@@ -149,7 +149,7 @@ Template.tooltip.onRendered ->
 		insertElement: (node, next) ->
 			next.parentNode.insertBefore(node, next)
 
-		moveElement: (next) ->
+		moveElement: (node, next) ->
 			Tooltips.hide()
 			next.parentNode.insertBefore(node, next)
 
