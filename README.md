@@ -152,7 +152,7 @@ Please see the example app for more examples.
 
 ## Styling
 
-You can use `data-tooltip-classes` to define custom classes for your tooltip.
+You can use `data-tooltip-classes` to define custom classes for your tooltip. It adds additional classes to the `.tooltip` element.
 
 ```html
 <p>
