@@ -152,7 +152,15 @@ Please see the example app for more examples.
 
 ## Styling
 
-This package does not bundle any CSS styles for the tooltips – it's up to you to style them. The only styles that are included are inlined on the tooltip element itself:
+You can use `data-tooltip-classes` to define custom classes for your tooltip.
+
+```html
+<p>
+  <button data-tooltip="I have custom classes" data-tooltip-classes="custom-class another-custom-class">Hurrah for styling!</button>
+</p>
+```
+
+The following styles that are included are inlined on the tooltip element itself:
 
 ```html
 <div class="tooltip tooltip--top" style="position: absolute; top: 100px; left: 100px;">
