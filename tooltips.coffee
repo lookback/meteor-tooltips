@@ -4,6 +4,7 @@ Tooltip =
 	text: false
 	css: {top: 0, left: 0}
 	direction: 'tooltip--top'
+	classes: ''
 
 dep = new Tracker.Dependency()
 offset = [10, 10]
@@ -43,6 +44,8 @@ positionTooltip = ($el) ->
 	position = $el.offset()
 	offLeft = $el.attr('data-tooltip-left')
 	offTop = $el.attr('data-tooltip-top')
+
+	classes = $el.attr('data-tooltip-classes');
 
 	if _.isUndefined(offLeft)
 		offLeft = 0
@@ -140,6 +143,9 @@ Template.tooltips.helpers
 
 	direction: ->
 		getTooltip().direction
+
+	classes: ->
+		getTooltip().classes
 
 # Init
 

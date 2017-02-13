@@ -1,7 +1,7 @@
 Package.describe({
   name: 'lookback:tooltips',
   summary: 'Reactive tooltips.',
-  version: '0.5.2',
+  version: '0.5.3',
   git: 'https://github.com/lookback/meteor-tooltips.git'
 });
 
