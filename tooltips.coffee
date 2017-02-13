@@ -31,6 +31,9 @@ setPosition = (position, direction) ->
 	Tooltip.direction = DIRECTION_MAP[direction] if direction
 	dep.changed()
 
+setClasses = (classes) ->
+	Tooltip.classes = classes or ''
+
 hideTooltip = ->
 	setTooltip false
 
@@ -44,8 +47,6 @@ positionTooltip = ($el) ->
 	position = $el.offset()
 	offLeft = $el.attr('data-tooltip-left')
 	offTop = $el.attr('data-tooltip-top')
-
-	classes = $el.attr('data-tooltip-classes');
 
 	if _.isUndefined(offLeft)
 		offLeft = 0
@@ -85,6 +86,7 @@ showTooltip = (evt, $el) ->
 
 	setTooltip(content)
 	setPosition(top: 0, left: 0)
+	setClasses($el.attr('data-tooltip-classes'))
 
 	Tracker.afterFlush -> positionTooltip($el)
 
