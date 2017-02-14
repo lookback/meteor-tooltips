@@ -242,6 +242,7 @@ Tooltips.hide();
 
 ## Version history
 
+- `0.5.4` - Minor update to README
 - `0.5.3` - Allow adding custom classes to tooltips via `data-tooltip-classes`
 - `0.5.2` - Make tooltip content update on reactive changes (thanks to using `$.fn.attr()` instead of `$.fn.data()`).
 - `0.5.1` - Fix CSS issue in IE.
