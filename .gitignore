@@ -1,2 +1,4 @@
 .build*
 .versions
+.DS_Store
+node_modules
